@@ -2,6 +2,7 @@ package ru.job4j;
 
 import org.junit.Assert;
 import org.junit.Test;
+import ru.job4j.Trigger;
 
 public class TriggerTest {
 
@@ -9,4 +10,5 @@ public class TriggerTest {
     public void test() {
         Assert.assertEquals(1, new Trigger().someLogic());
     }
+
 }
