@@ -51,10 +51,11 @@ public class SimpleArray<T> implements Iterable<T> {
 
     /**
      * method to get element from index
-     * @param index
+     * @param index of element
      * @return element
      */
 
+    @SuppressWarnings("unchecked")
     public T get(int index) {
         Objects.checkIndex(index, position);
         return (T) this.array[index];
@@ -63,7 +64,7 @@ public class SimpleArray<T> implements Iterable<T> {
 
     @Override
     public Iterator<T> iterator() {
-        return new Iterator<T>() {
+        return new Iterator<>() {
 
             private int count = 0;
 
@@ -73,6 +74,7 @@ public class SimpleArray<T> implements Iterable<T> {
             }
 
             @Override
+            @SuppressWarnings("unchecked")
             public T next() {
                 if (!hasNext()) {
                     throw new NoSuchElementException();
