@@ -32,17 +32,24 @@ public class SimpleArrayList<T> implements Iterable<T> {
 
     /**
      * method adding new element to array Object[]
-     * if array is full, method increases its size by 1
      * @param element adding element
      */
 
     public void add(T element) {
         if (position >= this.container.length) {
-            this.container = Arrays.copyOf(this.container, position + 1);
+            grow();
         }
         this.container[position] = element;
         position++;
         modCount++;
+    }
+
+
+    /**
+     * doubles the size of the array
+     */
+    public void grow() {
+        this.container = Arrays.copyOf(this.container, position * 2 + 1);
     }
 
     @Override
