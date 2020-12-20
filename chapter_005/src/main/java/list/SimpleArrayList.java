@@ -3,7 +3,7 @@ package list;
 import java.util.*;
 
 /**
- * Class simple ArrayList
+ * Class simple ArrayList (dynamic array)
  * @author Aleksei Usov
  * @since 18/12/2020
  */
