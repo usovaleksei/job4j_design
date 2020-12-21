@@ -10,6 +10,7 @@ package list;
 public class SimpleStack<T> {
 
     ForwardLinked<T> linked = new ForwardLinked<>();
+    private int size = 0;
 
     /**
      * method delete last element from stack
@@ -17,6 +18,7 @@ public class SimpleStack<T> {
      */
 
     public T pop() {
+        size--;
         return linked.deleteLast();
     }
 
@@ -26,5 +28,15 @@ public class SimpleStack<T> {
      */
     public void push(T value) {
         linked.add(value);
+        size++;
+    }
+
+    /**
+     * method checking is stack empty
+     * @return true if stack is empty
+     */
+
+    public boolean isEmpty() {
+        return size == 0;
     }
 }
