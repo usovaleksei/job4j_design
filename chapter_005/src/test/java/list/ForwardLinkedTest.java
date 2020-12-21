@@ -43,4 +43,19 @@ public class ForwardLinkedTest {
         linked.add(2);
         it.next();
     }
+
+    @Test
+    public void whenDeleteLast() {
+        ForwardLinked<Integer> linked = new ForwardLinked<>();
+        linked.add(1);
+        linked.add(2);
+        Integer rsl = linked.deleteLast();
+        assertThat(rsl, is(2));
+    }
+
+    @Test(expected = NoSuchElementException.class)
+    public void whenDeleteLastEmptyLiked() {
+        ForwardLinked<Integer> linked = new ForwardLinked<>();
+        linked.deleteLast();
+    }
 }
