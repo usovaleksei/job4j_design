@@ -75,6 +75,24 @@ public class ForwardLinked<T> implements Iterable<T> {
     }
 
     /**
+     * method revert singly linked list from tail to head
+     */
+
+    public void revert() {
+        if (head.next != null) {
+            tail = head;
+            Node<T> current = head.next;
+            head.next = null;
+            while (current != null) {
+               Node<T> next = current.next;
+               current.next = head;
+               head = current;
+               current = next;
+            }
+        }
+    }
+
+    /**
      * iterator for singly list
      * @return object iterator
      */
