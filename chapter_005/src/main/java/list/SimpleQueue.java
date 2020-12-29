@@ -28,11 +28,7 @@ public class SimpleQueue<T> {
                 this.out.push(this.in.pop());
             }
         }
-        T temp = null;
-        if (!this.out.isEmpty()) {
-            temp = this.out.pop();
-        }
-        return temp;
+        return this.out.pop();
     }
 
     /**

@@ -70,7 +70,7 @@ public class ForwardLinkedTest {
     }
 
     @Test
-    public void WhenAddThenRevertThenIter() {
+    public void whenAddThenRevertThenIter() {
         ForwardLinked<Integer> linked = new ForwardLinked<>();
         linked.add(1);
         linked.add(2);
