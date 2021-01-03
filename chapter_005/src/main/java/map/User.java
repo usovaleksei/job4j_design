@@ -1,9 +1,6 @@
 package map;
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class User {
 
@@ -38,6 +35,13 @@ public class User {
                 + '}';
     }
 
+
+    /** @noinspection checkstyle:EqualsHashCode*/
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, children, birthday);
+    }
+
     public static void main(String[] args) {
         User userOne = new User("Alex", 1, new GregorianCalendar(1985, Calendar.JUNE, 21));
         User userTwo = new User("Alex", 1, new GregorianCalendar(1985, Calendar.JUNE, 21));
@@ -48,7 +52,7 @@ public class User {
 
         for (Map.Entry<User, Object> element : map.entrySet()) {
             System.out.println("key: " + element.getKey() + '\n'
-                             + "key" + element + '\n'
+                             //+ "key" + element + '\n'
                              + "key hashcode: " + element.getKey().hashCode() + '\n'
                              + "value: " + element.getValue() + '\n');
         }
