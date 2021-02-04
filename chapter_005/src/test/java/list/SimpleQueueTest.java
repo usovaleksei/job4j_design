@@ -50,5 +50,4 @@ public class SimpleQueueTest {
         queue.push(3);
         assertThat(queue.poll(), is(2));
     }
-
 }

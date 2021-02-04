@@ -15,11 +15,13 @@ public class SimpleQueue<T> {
 
     /**
      * method return first element and delete this from queue
+     *
      * @return first element of queue
      */
 
     public T poll() {
-        if (this.in.isEmpty()) {
+
+        if (this.in.isEmpty() && this.out.isEmpty()) {
             throw new NoSuchElementException();
         }
 
@@ -28,11 +30,13 @@ public class SimpleQueue<T> {
                 this.out.push(this.in.pop());
             }
         }
+
         return this.out.pop();
     }
 
     /**
      * method add element to tail of queue
+     *
      * @param value adding element
      */
 
