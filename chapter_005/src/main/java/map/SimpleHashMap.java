@@ -8,13 +8,14 @@ import java.util.*;
  * @since 04/02/20212
  */
 
-public class SimpleHashMap<K, V> implements Iterable<SimpleHashMap.Node<K,V>> {
+public class SimpleHashMap<K, V> implements Iterable<SimpleHashMap.Node<K, V>> {
     private Node<K, V>[] table;
     private static final int INITIAL_CAPACITY = 16;
     private static final float LOAD_FACTOR = 0.75f;
     private int modCount = 0;
     private int size = 0;
 
+    @SuppressWarnings("unchecked")
     public SimpleHashMap() {
         this.table = new Node[INITIAL_CAPACITY];
     }
@@ -83,7 +84,8 @@ public class SimpleHashMap<K, V> implements Iterable<SimpleHashMap.Node<K,V>> {
      * method doubles the size of the array table
      */
 
-    public void grow () {
+    @SuppressWarnings("unchecked")
+    public void grow() {
         Node<K, V>[] oldTable = this.table;
         this.modCount++;
         this.table = new Node[oldTable.length * 2 + 1];
@@ -125,7 +127,7 @@ public class SimpleHashMap<K, V> implements Iterable<SimpleHashMap.Node<K,V>> {
 
             private int cursor = 0;
             private int position = 0;
-            private int expectedModCount = modCount;
+            private final int expectedModCount = modCount;
 
             @Override
             public boolean hasNext() {
@@ -162,7 +164,7 @@ public class SimpleHashMap<K, V> implements Iterable<SimpleHashMap.Node<K,V>> {
     protected static class Node<K, V> {
         private final int hash;
         private final K key;
-        private V value;
+        private final V value;
 
         public Node(int hash, K key, V value) {
             this.hash = hash;
