@@ -4,7 +4,7 @@ import java.util.*;
 
 public class User {
 
-    private String name;
+    private final String name;
     private int children;
     private Calendar birthday;
 
@@ -37,7 +37,10 @@ public class User {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, children, birthday);
+        int result = name.hashCode();
+        result = result * 31 + Integer.hashCode(children);
+        result = result * 31 + birthday.hashCode();
+        return result;
     }
 
     @Override
@@ -55,10 +58,12 @@ public class User {
     public static void main(String[] args) {
         User userOne = new User("Alex", 1, new GregorianCalendar(1985, Calendar.JUNE, 21));
         User userTwo = new User("Alex", 1, new GregorianCalendar(1985, Calendar.JUNE, 21));
+        User userThree = new User("Oleg", 2, new GregorianCalendar(1988, Calendar.AUGUST, 5));
 
         Map<User, Object> map = new HashMap<>();
         map.put(userOne, new Object());
         map.put(userTwo, new Object());
+        map.put(userThree, new Object());
 
         for (Map.Entry<User, Object> element : map.entrySet()) {
             System.out.println("key: " + element.getKey() + '\n'
