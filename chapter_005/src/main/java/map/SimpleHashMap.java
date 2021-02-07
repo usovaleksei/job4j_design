@@ -51,7 +51,7 @@ public class SimpleHashMap<K, V> implements Iterable<SimpleHashMap.Node<K, V>> {
     public boolean delete(K key) {
         boolean result = false;
         Node<K, V> node = this.table[indexBucket(hash(key))];
-        if (node != null && (node.getKey() == key)) {
+        if (node != null && (node.getKey().equals(key))) {
             table[indexBucket(hash(key))] = null;
             result = true;
         }
