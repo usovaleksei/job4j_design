@@ -3,6 +3,7 @@ package tree;
 import java.util.LinkedList;
 import java.util.Optional;
 import java.util.Queue;
+import java.util.function.Predicate;
 
 /**
  * class simple tree
@@ -19,8 +20,9 @@ public class Tree<E> implements SimpleTree<E> {
 
     /**
      * method add element to tree
-      * @param parent parent
-     * @param child child
+     *
+     * @param parent parent
+     * @param child  child
      * @return true if adding was successful, false if child already there is into tree
      */
 
@@ -43,14 +45,32 @@ public class Tree<E> implements SimpleTree<E> {
 
     @Override
     public Optional<Node<E>> findBy(E value) {
+        return findByPredicate(p -> p.value.equals(value));
+    }
+
+    /**
+     * method checked tree to binarity
+     * @return true if tree is binary
+     */
+
+    public boolean isBinary() {
+        return findByPredicate(p -> p.children.size() > 2).isEmpty();
+    }
+
+    /**
+     * method find elements by condition
+     * @param condition for find element
+     * @return elements
+     */
+
+    private Optional<Node<E>> findByPredicate(Predicate<Node<E>> condition) {
         Optional<Node<E>> rsl = Optional.empty();
         Queue<Node<E>> data = new LinkedList<>();
         data.offer(this.root);
         while (!data.isEmpty()) {
             Node<E> el = data.poll();
-            if (el.value.equals(value)) {
+            if (condition.test(el)) {
                 rsl = Optional.of(el);
-                break;
             }
             data.addAll(el.children);
         }
