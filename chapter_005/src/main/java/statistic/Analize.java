@@ -35,7 +35,7 @@ public class Analize {
             }
             info.added = Math.abs(current.size() - previous.size() - info.deleted);
         }
-        return null;
+        return info;
     }
 
     /**
@@ -43,6 +43,7 @@ public class Analize {
      */
 
     @Data
+    @AllArgsConstructor
     public static class User {
         private int id;
         private String name;
