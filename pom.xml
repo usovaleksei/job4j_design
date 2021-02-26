@@ -8,6 +8,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>chapter_005</module>
+        <module>chapter_006</module>
     </modules>
     <artifactId>job4j_design</artifactId>
     <version>1.0-SNAPSHOT</version>
