@@ -18,7 +18,7 @@ public class MultiplicationTable {
 
         for (int i = 1; i <= 9; i++) {
             result.append(System.lineSeparator()).append("Умножение на ").append(i).append(": ").append(System.lineSeparator());
-            for (int j = 0; j <=10; j++) {
+            for (int j = 0; j <= 10; j++) {
                 result.append(i).append(" x ").append(j).append(" = ").append(i * j).append(System.lineSeparator());
             }
         }
