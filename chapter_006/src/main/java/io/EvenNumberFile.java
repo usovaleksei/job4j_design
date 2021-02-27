@@ -1,9 +1,7 @@
-package inout;
+package io;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 
 /**
  * Class read file and show even numbers
