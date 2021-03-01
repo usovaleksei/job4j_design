@@ -23,7 +23,7 @@ public class MultiplicationTable {
             }
         }
 
-        try (FileOutputStream out = new FileOutputStream("Multiplication_table.txt")) {
+        try (FileOutputStream out = new FileOutputStream("io_files/Multiplication_table.txt")) {
             out.write(result.toString().getBytes());
         } catch (IOException e) {
             e.printStackTrace();
