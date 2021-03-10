@@ -16,11 +16,10 @@ public class Search {
 
     public static void main(String[] args) throws IOException {
         if (args.length != 2) {
-            throw new IllegalStateException("Root folder or etx not set");
+            throw new IllegalStateException("Root folder or etx not set. Usage java -jar dir.jar ROOT_FOLDER ETX");
         }
         Path start = Paths.get(args[0]);
         search(start, args[1]).forEach(System.out::println);
-
     }
 
     /**
