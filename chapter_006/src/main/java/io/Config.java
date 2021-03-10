@@ -30,10 +30,14 @@ public class Config {
         this.values.clear();
         try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
             reader.lines().
-                    filter(line -> !line.startsWith("#")).
-                    map(w -> w.split("=")).
-                    filter(pair -> pair.length == 2).
-                    forEach(pair -> this.values.put(pair[0], pair[1]));
+                    filter(line -> !line.isEmpty() && !line.startsWith("#")).
+                    forEach(s -> {
+                        String[] strings = s.split("=");
+                        if (strings.length <= 1) {
+                            throw new IllegalArgumentException();
+                        }
+                        this.values.put(strings[0], strings[1]);
+                    });
         } catch (IOException e) {
             e.printStackTrace();
         }
