@@ -1,0 +1,22 @@
+User: привет
+Bot: answer three
+
+User: вопрос
+Bot: answer five
+
+User: еще один
+Bot: answer one
+
+User: стоп
+User: работает обрезка пробелов
+User: проверка
+User: продолжить
+Bot: answer for
+
+User: проверка связи
+Bot: answer three
+
+User: вопрос
+Bot: answer five
+
+User: закончить
