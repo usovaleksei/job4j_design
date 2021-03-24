@@ -1,5 +1,0 @@
-answer one
-answer two
-answer three
-answer for
-answer five
