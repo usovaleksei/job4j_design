@@ -1,18 +1,19 @@
 User: 1
-Bot: answer for
-
-User: 5
-Bot: answer one
-
-User: 4
-Bot: answer for
-
-User: стоп
-User: проверка
-User: продолжить
 Bot: answer five
 
-User: 1
-Bot: answer one
+User: 2
+Bot: answer five
+
+User: 5
+Bot: answer five
+
+User: стоп
+User: еще
+User: проверка
+User: продолжить
+Bot: answer three
+
+User: закончить\
+Bot: answer five
 
 User: закончить
