@@ -51,11 +51,7 @@ public class ConsoleChat {
             userQuestion = scanner.nextLine().strip();
         }
         dialog.add("User: " + userQuestion);
-        try (PrintWriter out = new PrintWriter(new BufferedOutputStream(new FileOutputStream(this.path)))) {
-            dialog.forEach(out::println);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        writeLog(dialog);
     }
 
     /**
@@ -71,6 +67,19 @@ public class ConsoleChat {
             e.printStackTrace();
         }
         return botAnswers;
+    }
+
+    /**
+     * method write dialog to file
+     * @param dialog list of user questions and bot answers
+     */
+
+    public void writeLog(List<String> dialog) {
+        try (PrintWriter out = new PrintWriter(new BufferedOutputStream(new FileOutputStream(this.path)))) {
+            dialog.forEach(out::println);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {

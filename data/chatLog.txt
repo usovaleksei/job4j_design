@@ -1,19 +1,16 @@
-User: 1
-Bot: answer five
+User: привет
+Bot: answer two
 
-User: 2
-Bot: answer five
-
-User: 5
-Bot: answer five
+User: проверка
+Bot: answer one
 
 User: стоп
-User: еще
-User: проверка
+User: ждем команду
+User: ждем
 User: продолжить
-Bot: answer three
+Bot: answer two
 
-User: закончить\
-Bot: answer five
+User: еще вопрос
+Bot: answer two
 
 User: закончить
