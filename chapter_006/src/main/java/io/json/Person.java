@@ -1,5 +1,8 @@
 package io.json;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -8,7 +11,9 @@ import javax.xml.bind.annotation.*;
 import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 @XmlRootElement(name = "person")
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -36,6 +41,22 @@ public class Person {
         this.statuses = statuses;
     }
 
+    public boolean isSex() {
+        return sex;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public Contact getContact() {
+        return contact;
+    }
+
+    public String[] getStatuses() {
+        return statuses;
+    }
+
     @Override
     public String toString() {
         return "Person{"
@@ -48,7 +69,30 @@ public class Person {
 
     public static void main(String[] args) throws JAXBException, IOException {
 
+        /*JSONObject из json-строки*/
+        JSONObject jsonContact = new JSONObject("{\"phone\":\"+7(924)111-111-11-11\"}");
+
+        /*JSONArray из ArrayList*/
+        List<String> list = new ArrayList<>();
+        list.add("Student");
+        list.add("Free");
+        JSONArray jsonStatuses = new JSONArray(list);
+
+        /*JSONObject напрямую методом put*/
         final Person person = new Person(false, 35, new Contact("777-777"), new String[]{"Worker", "Married"});
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("sex", person.isSex());
+        jsonObject.put("age", person.getAge());
+        jsonObject.put("contact", jsonContact);
+        jsonObject.put("statuses", jsonStatuses);
+
+        /*Вывод результата в консоль*/
+        System.out.println(jsonObject.toString());
+
+        /*Преобразование объекта person в json-строку*/
+        System.out.println(new JSONObject(person).toString());
+
+        /*final Person person = new Person(false, 35, new Contact("777-777"), new String[]{"Worker", "Married"});
 
         //Получаем контекст для доступа к АПИ
         JAXBContext context = JAXBContext.newInstance(Person.class);
@@ -71,6 +115,6 @@ public class Person {
             //десериализуем
             Person result = (Person) unmarshaller.unmarshal(reader);
             System.out.println(result);
-        }
+        }*/
     }
 }
