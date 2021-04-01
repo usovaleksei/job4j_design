@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<user sex = "true" age = "35" name = "Aleksei">
+    <adress city = "Moscow" street = "Planetnaya" house = "25" flat = "191"/>
+    <mails>
+        <mail>email@mail.ru</mail>
+        <mail>yandex@ya.ru</mail>
+    </mails>
+</user>
