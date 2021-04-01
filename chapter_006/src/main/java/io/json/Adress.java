@@ -1,10 +1,21 @@
 package io.json;
 
+import com.sun.xml.txw2.annotation.XmlElement;
+
+import javax.xml.bind.annotation.XmlAttribute;
+
+@XmlElement(value = "address")
 public class Adress {
-    private final String city;
-    private final String street;
-    private final int house;
-    private final int flat;
+
+    @XmlAttribute
+    private String city;
+    private String street;
+    private int house;
+    private int flat;
+
+    public Adress() {
+
+    }
 
     public Adress(String city, String street, int house, int flat) {
         this.city = city;
