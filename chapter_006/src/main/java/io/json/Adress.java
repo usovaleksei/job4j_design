@@ -24,6 +24,22 @@ public class Adress {
         this.flat = flat;
     }
 
+    public String getCity() {
+        return city;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public int getHouse() {
+        return house;
+    }
+
+    public int getFlat() {
+        return flat;
+    }
+
     @Override
     public String toString() {
         return "Adress{"
