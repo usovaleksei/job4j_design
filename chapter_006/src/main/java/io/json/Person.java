@@ -17,11 +17,11 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
-                "sex=" + sex +
-                ", age=" + age +
-                ", contact=" + contact +
-                ", statuses=" + Arrays.toString(statuses) +
-                '}';
+        return "Person{"
+                + "sex=" + sex
+                + ", age=" + age
+                + ", contact=" + contact
+                + ", statuses=" + Arrays.toString(statuses)
+                + '}';
     }
 }

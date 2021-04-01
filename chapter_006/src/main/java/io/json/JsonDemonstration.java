@@ -19,12 +19,7 @@ public class JsonDemonstration {
 
         /*transform json-string to object*/
         final String userJson =
-                "{"
-                    + "\"sex\":true,"
-                    + "\"age\":35,"
-                    + "\"name\":\"Aleksei\","
-                    + "\"adress\":"
-                        + "{"
+                "{" + "\"sex\":true," + "\"age\":35," + "\"name\":\"Aleksei\"," + "\"adress\":" + "{"
                         + "\"city\":\"Moscow\","
                         + "\"street\":\"Planetnaya\","
                         + "\"house\":25,"

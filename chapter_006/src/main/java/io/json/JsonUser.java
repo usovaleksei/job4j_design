@@ -19,12 +19,12 @@ public class JsonUser {
 
     @Override
     public String toString() {
-        return "User{" +
-                "sex=" + sex +
-                ", age=" + age +
-                ", name='" + name + '\'' +
-                ", adress=" + adress +
-                ", mails=" + Arrays.toString(mails) +
-                '}';
+        return "User{"
+                + "sex=" + sex
+                + ", age=" + age
+                + ", name='" + name + '\''
+                + ", adress=" + adress
+                + ", mails=" + Arrays.toString(mails)
+                + '}';
     }
 }

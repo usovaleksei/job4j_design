@@ -15,11 +15,11 @@ public class Adress {
 
     @Override
     public String toString() {
-        return "Adress{" +
-                "city='" + city + '\'' +
-                ", street='" + street + '\'' +
-                ", house=" + house +
-                ", flat=" + flat +
-                '}';
+        return "Adress{"
+                + "city='" + city + '\''
+                + ", street='" + street + '\''
+                + ", house=" + house
+                + ", flat=" + flat
+                + '}';
     }
 }
