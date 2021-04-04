@@ -9,6 +9,7 @@
     <modules>
         <module>chapter_005</module>
         <module>chapter_006</module>
+        <module>chapter_007</module>
     </modules>
     <artifactId>job4j_design</artifactId>
     <version>1.0-SNAPSHOT</version>
