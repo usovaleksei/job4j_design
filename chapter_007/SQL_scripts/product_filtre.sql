@@ -3,7 +3,7 @@ select * from products p join type t on t.id = p.type_id where t.name = 'СЫР'
 /*получение продуктов, в имени которых есть слово 'мороженное'*/
 select * from products where name like '%мороженное%';
 /*все продукты, срок годности которых заканчивается в следующем месяце*/
-select * from products where expired_date < current_date + interval '1 month';
+select * from products where date_part('month', expired_date) = date_part('month', current_date + interval '1 month');
 /*самый дорогой продукт*/
 select name as "Наименование", expired_date as "Срок годности", price as "Цена" from products
 where price = (select max(price) from products);
