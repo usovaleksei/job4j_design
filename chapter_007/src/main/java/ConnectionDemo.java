@@ -1,6 +1,7 @@
-import io.Config;
-
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.*;
+import java.util.Properties;
 
 /**
  * class connection to DB with parameters from app.properties
@@ -10,16 +11,19 @@ import java.sql.*;
 
 public class ConnectionDemo {
 
-    private static Connection getConnection() throws SQLException {
-        Config config = new Config("./chapter_007/src/main/resources/app.properties");
-        config.load();
-        String url = config.value("url");
-        String login = config.value("login");
-        String password = config.value("password");
-        return DriverManager.getConnection(url, login, password);
+    private static Connection getConnection() throws SQLException, IOException {
+        ClassLoader loader = ConnectionDemo.class.getClassLoader();
+        try (InputStream io = loader.getResourceAsStream("app.properties")) {
+            Properties config = new Properties();
+            config.load(io);
+            String url = config.getProperty("url");
+            String login = config.getProperty("login");
+            String password = config.getProperty("password");
+            return DriverManager.getConnection(url, login, password);
+        }
     }
 
-    private static void createTable(String tableName) throws SQLException {
+    private static void createTable(String tableName) throws SQLException, IOException {
         String sql = String.format(
                 "create table if not exists %s (%s, %s);",
                 tableName,
@@ -33,7 +37,7 @@ public class ConnectionDemo {
         }
     }
 
-    public static String getTableScheme(String tableName) throws SQLException {
+    public static String getTableScheme(String tableName) throws SQLException, IOException {
         StringBuilder scheme = new StringBuilder();
         try (Connection connection = getConnection()) {
             DatabaseMetaData metaData = connection.getMetaData();
@@ -49,7 +53,7 @@ public class ConnectionDemo {
         return scheme.toString();
     }
 
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws SQLException, IOException {
         String tableName = "DemoTable01";
         ConnectionDemo.createTable(tableName.toLowerCase());
         String result = ConnectionDemo.getTableScheme(tableName.toLowerCase());
