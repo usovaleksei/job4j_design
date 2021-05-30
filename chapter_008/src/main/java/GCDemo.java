@@ -20,13 +20,10 @@ public class GCDemo {
 
     public static void main(String[] args) {
         info();
-        User userOne = new User(35, "Alex");
-        User userTwo = new User(28, "Sergey");
-        User userThree = new User(30, "Ivan");
-
-        for (int i = 0; i < 2000; i++) {
+        for (int i = 0; i < 10000; i++) {
             new Person(i, "N" + i);
         }
+        System.gc();
         info();
     }
 
